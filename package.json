@@ -1,0 +1,28 @@
+{
+  "name": "notion-table",
+  "version": "1.0.0",
+  "description": "Talbe for display ticket by filter from notion table",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/Shaidulin/notion-table.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/Shaidulin/notion-table/issues"
+  },
+  "homepage": "https://gitlab.com/Shaidulin/notion-table#readme",
+  "dependencies": {
+    "@notionhq/client": "^0.2.3",
+    "dotenv": "^8.6.0",
+    "restify": "^8.5.1"
+  },
+  "devDependencies": {
+    "node-env-run": "^4.0.2"
+  }
+}
