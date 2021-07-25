@@ -7,6 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@gitlab.com/Shaidulin/notion-table.git"
@@ -20,6 +23,7 @@
   "homepage": "https://gitlab.com/Shaidulin/notion-table#readme",
   "dependencies": {
     "@notionhq/client": "^0.2.3",
+    "exjs": "^1.2.1",
     "express": "^4.17.1"
   }
 }
