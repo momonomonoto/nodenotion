@@ -1,2 +1,2 @@
 # notiontable
-simple notion restfulclient
+backend for notion statistic
