@@ -23,6 +23,7 @@
   "homepage": "https://gitlab.com/Shaidulin/notion-table#readme",
   "dependencies": {
     "@notionhq/client": "^0.2.3",
+    "cors": "^2.8.5",
     "exjs": "^1.2.1",
     "express": "^4.17.1"
   }

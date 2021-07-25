@@ -1,8 +1,11 @@
 const express = require('express');
 const path = require('path');
 const PORT = process.env.PORT || 5000;
+const cors = require('cors')
 
 const getRealizedTickets = require('./api/get-realized-tickets');
+
+app.use(cors())
 
 express()
     .use(express.static(path.join(__dirname, 'public')))
