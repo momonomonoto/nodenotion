@@ -5,9 +5,8 @@ const cors = require('cors')
 
 const getRealizedTickets = require('./api/get-realized-tickets');
 
-app.use(cors())
-
 express()
+    .use(cors())
     .use(express.static(path.join(__dirname, 'public')))
     .set('views', path.join(__dirname, 'views'))
     .set('view engine', 'ejs')
