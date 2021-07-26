@@ -24,7 +24,8 @@
   "dependencies": {
     "@notionhq/client": "^0.2.3",
     "cors": "^2.8.5",
-    "exjs": "^1.2.1",
+    "ejs": "^3.1.6",
+    "dotenv": "^8.6.0",
     "express": "^4.17.1"
   }
 }
