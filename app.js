@@ -4,7 +4,7 @@ const path = require('path');
 const PORT = process.env.PORT || 5005;
 const cors = require('cors')
 
-const getRealizedTickets = require('./api/get-realized-tickets');
+const getRealizationStatistic = require('./api/get-realized-tickets');
 
 express()
     .use(cors())
@@ -12,5 +12,5 @@ express()
     .set('views', path.join(__dirname, 'views'))
     .set('view engine', 'ejs')
     .get('/', (req, res) => res.send('api method not found'))
-    .get('/tickets/realized', getRealizedTickets)
+    .get('/tickets/realization-statistic', getRealizationStatistic)
     .listen(PORT, () => console.log(`Listening on ${ PORT }`));

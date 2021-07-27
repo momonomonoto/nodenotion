@@ -1,17 +1,36 @@
 const notion = require('../notion');
+const getCountDataProperties = require('../../utils/get-count-data-properties');
 
 const dataFilter = {
     database_id: process.env.DATABASE_ID,
-    page_size:undefined
+    filter: {
+        or: [
+            {
+                property: 'Реализация',
+                select: {
+                    is_not_empty: true,
+                },
+            },
+        ],
+    },
 }
 
-const getRealizedTickets = async (req, res, next) => {
+const getRealizationStatistic =  async (req, res, next) => {
     try {
-        const myPage = await notion.databases.query({...dataFilter})
-        res.send(myPage);
+        let data = [];
+        let startCursor = undefined;
+
+        while ( startCursor != null || startCursor === undefined ) {
+            let myPage = await notion.databases.query({...dataFilter, start_cursor:startCursor});
+            startCursor = myPage.next_cursor;
+            data = await data.concat(myPage.results);
+        }
+        const realizedData = data.map(item=>item.properties["Реализация"].select.name);
+
+        res.send(getCountDataProperties(realizedData));
     } catch (error) {
         console.error(error)
     }
     next();
 }
-module.exports = getRealizedTickets;
+module.exports = getRealizationStatistic;
