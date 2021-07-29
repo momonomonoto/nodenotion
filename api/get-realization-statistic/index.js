@@ -1,7 +1,7 @@
 const notion = require('../notion');
 const getCountDataProperties = require('../../utils/get-count-data-properties');
 const addAmountPercent = require('../../utils/add-amount-percent');
-const addReatableTitleForRealizeData = require('../../utils/add-readable-title-for-realized-data');
+const getReatableTitleFromRealizedData = require('../../utils/get-reatable-title-from-realized-data');
 
 const compose = require('../../utils/compose');
 
@@ -30,7 +30,7 @@ const getRealizationStatistic =  async (req, res, next) => {
             data = await data.concat(myPage.results);
         }
         const realizedData = data.map(item=>item.properties["Реализация"].select.name);
-        const formatData = compose(addReatableTitleForRealizeData, addAmountPercent, getCountDataProperties);
+        const formatData = compose(getReatableTitleFromRealizedData, addAmountPercent, getCountDataProperties);
         res.send(formatData(realizedData));
     } catch (error) {
         console.error(error)
