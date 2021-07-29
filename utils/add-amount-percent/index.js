@@ -1,7 +1,7 @@
 const sum = (acc, curr) => acc + curr;
 const sumValues = data => Object.values(data).reduce(sum);
 
-const getDataWithPercentAmount = data => {
+const addAmountPercent = data => {
     const entryList = Object.entries(data);
     const sumPropertyWithPercent = sumValues(data);
     const percentData = entryList.map(entry=> {
@@ -13,4 +13,4 @@ const getDataWithPercentAmount = data => {
     return percentData;
 }
 
-module.exports = getDataWithPercentAmount;
+module.exports = addAmountPercent;
