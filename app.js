@@ -4,7 +4,7 @@ const path = require('path');
 const PORT = process.env.PORT || 5005;
 const cors = require('cors')
 
-const getRealizationStatistic = require('./api/get-realized-tickets');
+const getRealizationStatistic = require('./api/get-realization-statistic');
 
 express()
     .use(cors())

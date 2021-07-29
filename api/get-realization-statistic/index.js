@@ -1,5 +1,8 @@
 const notion = require('../notion');
 const getCountDataProperties = require('../../utils/get-count-data-properties');
+const getPercentData = require('../../utils/get-percent-data');
+
+const compose = require('../../utils/compose');
 
 const dataFilter = {
     database_id: process.env.DATABASE_ID,
@@ -26,8 +29,8 @@ const getRealizationStatistic =  async (req, res, next) => {
             data = await data.concat(myPage.results);
         }
         const realizedData = data.map(item=>item.properties["Реализация"].select.name);
-
-        res.send(getCountDataProperties(realizedData));
+        const formatData = compose(getPercentData,getCountDataProperties);
+        res.send(formatData(realizedData));
     } catch (error) {
         console.error(error)
     }
